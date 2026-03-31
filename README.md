@@ -41,10 +41,6 @@ docker compose exec ollama ollama pull llama3.2-vision
 
 If the second command errors, wait ~30s and retry (Ollama is still starting).
 
-**C — Make** (if you have `make`): `make local`
-
-The first run **builds** the app and **downloads** the default vision model (`llama3.2-vision`), which can take a while and needs a few GB of disk.
-
 ### 3) Open the app
 
 Go to **http://localhost:3000** — `/` is the landing page, `/game` is the game.
