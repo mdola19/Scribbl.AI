@@ -11,12 +11,30 @@ export function getOllamaModel(): string {
 }
 
 export interface OllamaChatResponse {
-  message?: { content?: string };
+  message?: { content?: string | unknown };
   error?: string;
 }
 
+function extractMessageText(data: OllamaChatResponse): string {
+  const raw = data.message?.content;
+  if (typeof raw === "string") return raw.trim();
+  if (Array.isArray(raw)) {
+    return raw
+      .map((part) => {
+        if (typeof part === "string") return part;
+        if (part && typeof part === "object" && "text" in part) {
+          return String((part as { text?: string }).text ?? "");
+        }
+        return "";
+      })
+      .join("")
+      .trim();
+  }
+  return "";
+}
+
 const LIVE_PROMPT =
-  "You are playing a drawing guessing game. Look at this sketch and return your single best guess in 1 to 3 words. Explain your thinking briefly (under 15 words) to guide the user";
+  "You are playing a drawing guessing game. Return best guess in 1-3 words, then an explanation in exactly 5-6 words.";
 
 const FINAL_PROMPT =
   "You are making the final locked guess in a drawing guessing game. Return only one final answer in 1 to 3 words. Do not explain.";
@@ -34,6 +52,12 @@ export async function ollamaVisionGuess(
     return { text: "", ok: false, error: "empty_image" };
   }
 
+  /** Shorter generations = faster responses; prompts already ask for brief text */
+  const options =
+    mode === "live"
+      ? { num_predict: 64, temperature: 0.35 }
+      : { num_predict: 24, temperature: 0.25 };
+
   try {
     const res = await fetch(`${host}/api/chat`, {
       method: "POST",
@@ -41,6 +65,7 @@ export async function ollamaVisionGuess(
       body: JSON.stringify({
         model,
         stream: false,
+        options,
         messages: [
           {
             role: "user",
@@ -62,7 +87,7 @@ export async function ollamaVisionGuess(
       return { text: "", ok: false, error: err };
     }
 
-    const content = data.message?.content?.trim() ?? "";
+    const content = extractMessageText(data);
     return { text: content, ok: true };
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);

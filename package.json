@@ -8,7 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "local:setup": "node scripts/local-up.mjs",
+    "local:docker": "docker compose up -d --build",
+    "local:down": "docker compose down"
   },
   "dependencies": {
     "next": "14.2.18",

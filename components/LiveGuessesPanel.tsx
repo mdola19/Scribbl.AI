@@ -1,13 +1,13 @@
 "use client";
 
 import type { LiveGuessItem } from "@/types/game";
-import { useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 
-export default function LiveGuessesPanel({ items }: { items: LiveGuessItem[] }) {
+function LiveGuessesPanelInner({ items }: { items: LiveGuessItem[] }) {
   const listRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    listRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    listRef.current?.scrollTo({ top: 0, behavior: "auto" });
   }, [items.length]);
 
   return (
@@ -35,13 +35,23 @@ export default function LiveGuessesPanel({ items }: { items: LiveGuessItem[] }) 
           items.map((g, i) => (
             <li
               key={g.id}
-              className={`rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 shadow-md shadow-black/20 ${i === 0 ? "animate-guess-pop" : ""}`}
+              className={`rounded-xl border border-white/10 bg-white/[0.06] px-4 py-3 shadow-md shadow-black/20 ${
+                i === 0 ? "animate-guess-pop" : ""
+              }`}
             >
-              <p className="font-display text-lg font-semibold tracking-tight text-white">
+              <p
+                className={`font-display font-semibold tracking-tight leading-snug text-white ${
+                  i === 0 ? "text-2xl" : "text-lg"
+                }`}
+              >
                 {g.text}
               </p>
               {g.thinking ? (
-                <p className="mt-1 text-xs leading-relaxed text-spotlight/85">
+                <p
+                  className={`mt-1 leading-snug ${
+                    i === 0 ? "text-sm text-white/70" : "text-xs text-white/55"
+                  }`}
+                >
                   {g.thinking}
                 </p>
               ) : null}
@@ -59,3 +69,5 @@ export default function LiveGuessesPanel({ items }: { items: LiveGuessItem[] }) 
     </div>
   );
 }
+
+export default memo(LiveGuessesPanelInner);

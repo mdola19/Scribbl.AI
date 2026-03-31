@@ -35,10 +35,11 @@ export async function POST(req: Request) {
   const result = await ollamaVisionGuess(imageBase64, "live");
 
   if (!result.ok) {
+    const detail = result.error ?? "ollama_error";
     return NextResponse.json({
       guess: "no guess",
-      thinking: undefined,
-      error: result.error ?? "ollama_error",
+      thinking: `Ollama: ${detail}`,
+      error: detail,
     });
   }
 

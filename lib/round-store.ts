@@ -7,7 +7,13 @@ interface StoredRound {
   createdAt: number;
 }
 
-const rounds = new Map<string, StoredRound>();
+/** Survives Next.js dev HMR so live-guess still finds rounds after start-round */
+const globalForRounds = globalThis as unknown as {
+  __skribblRoundStore?: Map<string, StoredRound>;
+};
+const rounds =
+  globalForRounds.__skribblRoundStore ?? new Map<string, StoredRound>();
+globalForRounds.__skribblRoundStore = rounds;
 
 const MAX_ROUNDS = 500;
 

@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  startTransition,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import SketchCanvas, { type SketchCanvasHandle } from "@/components/SketchCanvas";
 import DifficultySlider from "@/components/DifficultySlider";
 import LiveGuessesPanel from "@/components/LiveGuessesPanel";
@@ -115,8 +121,11 @@ export default function GamePage() {
     setAiStatus("analyzing");
 
     try {
-      const snap = canvasRef.current?.getSnapshotDataUrl() ?? "";
-      const blank = canvasRef.current?.isBlank() ?? true;
+      const { dataUrl: snap, isBlank: blank } =
+        canvasRef.current?.getSnapshotForGuess() ?? {
+          dataUrl: "",
+          isBlank: true,
+        };
 
       if (blank || !snap) {
         setAiStatus("idle");
@@ -129,10 +138,7 @@ export default function GamePage() {
         body: JSON.stringify({ roundId: rid, imageBase64: snap }),
       });
 
-      const j = (res.ok ? await res.json().catch(() => ({})) : {}) as Record<
-        string,
-        unknown
-      >;
+      const j = (await res.json().catch(() => ({}))) as Record<string, unknown>;
 
       if (phaseRef.current !== "playing" || myGen !== liveGenRef.current) {
         return;
@@ -144,29 +150,22 @@ export default function GamePage() {
 
       if (!res.ok) {
         setAiStatus("error");
-        setLiveGuesses((prev) => [
-          {
-            id: crypto.randomUUID(),
-            text: "no guess",
-            thinking: "Server hiccup — check your connection.",
-            at: Date.now(),
-          },
-          ...prev,
-        ]);
-        return;
-      }
-
-      if (j.error && !j.guess) {
-        setAiStatus("error");
-        setLiveGuesses((prev) => [
-          {
-            id: crypto.randomUUID(),
-            text: "no guess",
-            thinking: "Ollama unreachable — keep sketching.",
-            at: Date.now(),
-          },
-          ...prev,
-        ]);
+        const code = typeof j.error === "string" ? j.error : "";
+        const thinking =
+          code === "unknown_round"
+            ? "Round not found on server (often after a dev hot reload). Click “Start round” again."
+            : `Request failed (${res.status}). If Ollama is running, try again.`;
+        startTransition(() => {
+          setLiveGuesses((prev) => [
+            {
+              id: crypto.randomUUID(),
+              text: "no guess",
+              thinking,
+              at: Date.now(),
+            },
+            ...prev,
+          ]);
+        });
         return;
       }
 
@@ -176,11 +175,13 @@ export default function GamePage() {
           ? j.thinking
           : undefined;
 
-      setLiveGuesses((prev) => [
-        { id: crypto.randomUUID(), text: guess, thinking, at: Date.now() },
-        ...prev,
-      ]);
-      setAiStatus("idle");
+      startTransition(() => {
+        setLiveGuesses((prev) => [
+          { id: crypto.randomUUID(), text: guess, thinking, at: Date.now() },
+          ...prev,
+        ]);
+      });
+      setAiStatus(j.error ? "error" : "idle");
     } catch {
       if (phaseRef.current === "playing" && myGen === liveGenRef.current) {
         setAiStatus("error");
@@ -189,6 +190,73 @@ export default function GamePage() {
       liveBusyRef.current = false;
     }
   }, []);
+
+  const finalizeRound = useCallback(async () => {
+    if (finalizingRef.current) return;
+    finalizingRef.current = true;
+    liveGenRef.current += 1;
+    setPhase("ending");
+    setAiStatus("final_pending");
+
+    const rid = roundIdRef.current;
+    let finalGuess = "no guess";
+
+    if (rid) {
+      const snap = canvasRef.current?.getSnapshotDataUrl() ?? "";
+      try {
+        const fr = await fetch("/api/game/final-guess", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ roundId: rid, imageBase64: snap }),
+        });
+        const fj = await fr.json().catch(() => ({}));
+        if (fj.stale) {
+          finalGuess = "no guess";
+        } else {
+          finalGuess =
+            typeof fj.guess === "string" && fj.guess.trim() ? fj.guess : "no guess";
+          if (fj.error) setAiStatus("error");
+        }
+      } catch {
+        setAiStatus("error");
+      }
+
+      try {
+        const sr = await fetch("/api/game/score-round", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ roundId: rid, finalGuess }),
+        });
+        const sj = await sr.json().catch(() => ({}));
+
+        const tw = (sj.targetWord as string) || targetWordRef.current;
+        const pts = Number(sj.points) as 0 | 1 | 2;
+        const k = sj.kind as string;
+        const kind: ScoreKind =
+          k === "exact" || k === "synonym" || k === "incorrect" ? k : "incorrect";
+        const displayGuess =
+          (sj.finalGuessDisplay as string) || finalGuess;
+
+        if (!sj.alreadyScored) {
+          recordRound(tw, Number.isFinite(pts) ? pts : 0);
+        }
+
+        setModalTarget(tw);
+        setModalGuess(displayGuess);
+        setModalKind(kind);
+        setModalPoints(Number.isFinite(pts) ? pts : 0);
+      } catch {
+        setModalTarget(targetWordRef.current);
+        setModalGuess(finalGuess);
+        setModalKind("incorrect");
+        setModalPoints(0);
+      }
+    }
+
+    setModalOpen(true);
+    setPhase("result");
+    setAiStatus("idle");
+  }, [recordRound]);
 
   useEffect(() => {
     if (phase !== "playing") return;
@@ -201,73 +269,8 @@ export default function GamePage() {
   useEffect(() => {
     if (phase !== "playing") return;
     if (secondsLeft > 0) return;
-    if (finalizingRef.current) return;
-    finalizingRef.current = true;
-    void (async () => {
-      liveGenRef.current += 1;
-      setPhase("ending");
-      setAiStatus("final_pending");
-
-      const rid = roundIdRef.current;
-      let finalGuess = "no guess";
-
-      if (rid) {
-        const snap = canvasRef.current?.getSnapshotDataUrl() ?? "";
-        try {
-          const fr = await fetch("/api/game/final-guess", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ roundId: rid, imageBase64: snap }),
-          });
-          const fj = await fr.json().catch(() => ({}));
-          if (fj.stale) {
-            finalGuess = "no guess";
-          } else {
-            finalGuess =
-              typeof fj.guess === "string" && fj.guess.trim() ? fj.guess : "no guess";
-            if (fj.error) setAiStatus("error");
-          }
-        } catch {
-          setAiStatus("error");
-        }
-
-        try {
-          const sr = await fetch("/api/game/score-round", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ roundId: rid, finalGuess }),
-          });
-          const sj = await sr.json().catch(() => ({}));
-
-          const tw = (sj.targetWord as string) || targetWord;
-          const pts = Number(sj.points) as 0 | 1 | 2;
-          const k = sj.kind as string;
-          const kind: ScoreKind =
-            k === "exact" || k === "synonym" || k === "incorrect" ? k : "incorrect";
-          const displayGuess =
-            (sj.finalGuessDisplay as string) || finalGuess;
-
-          if (!sj.alreadyScored) {
-            recordRound(tw, Number.isFinite(pts) ? pts : 0);
-          }
-
-          setModalTarget(tw);
-          setModalGuess(displayGuess);
-          setModalKind(kind);
-          setModalPoints(Number.isFinite(pts) ? pts : 0);
-        } catch {
-          setModalTarget(targetWordRef.current);
-          setModalGuess(finalGuess);
-          setModalKind("incorrect");
-          setModalPoints(0);
-        }
-      }
-
-      setModalOpen(true);
-      setPhase("result");
-      setAiStatus("idle");
-    })();
-  }, [phase, secondsLeft, recordRound, targetWord]);
+    void finalizeRound();
+  }, [phase, secondsLeft, finalizeRound]);
 
   useEffect(() => {
     if (phase !== "playing") return;
@@ -306,8 +309,8 @@ export default function GamePage() {
               The <span className="text-spotlight">Skribbl.AI</span> stage
             </h1>
             <p className="mt-1 max-w-xl text-sm text-white/55">
-              Sketch the secret prompt. Every ~4s the vision model peeks — timer
-              stop locks one final guess for points.
+              Sketch the secret prompt. Every ~4s the vision model peeks — when
+              time is up (or you lock in early), one final guess scores the round.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
@@ -375,14 +378,28 @@ export default function GamePage() {
               <AiStatusIndicator status={aiStatus} />
             </div>
 
-            <button
-              type="button"
-              onClick={() => void beginRound()}
-              disabled={controlsDisabled}
-              className="rounded-2xl bg-accent px-8 py-4 text-base font-semibold text-white shadow-lg shadow-accent/30 transition hover:bg-accent-dim disabled:cursor-not-allowed disabled:opacity-45"
-            >
-              {phase === "idle" ? "Start round" : "Round in motion…"}
-            </button>
+            <div className="flex flex-col items-stretch gap-3 sm:items-end">
+              <button
+                type="button"
+                onClick={() => setSecondsLeft(0)}
+                disabled={phase !== "playing" || secondsLeft <= 0}
+                className="rounded-2xl border border-emerald-400/50 bg-emerald-500/15 px-6 py-3 text-sm font-semibold text-emerald-100 shadow-md shadow-emerald-900/20 transition hover:bg-emerald-500/25 disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                Lock in — AI looks good
+              </button>
+              <p className="max-w-xs text-center text-xs text-white/45 sm:text-right">
+                End the round now and force the model&apos;s final guess (same
+                scoring as the buzzer).
+              </p>
+              <button
+                type="button"
+                onClick={() => void beginRound()}
+                disabled={controlsDisabled}
+                className="rounded-2xl bg-accent px-8 py-4 text-base font-semibold text-white shadow-lg shadow-accent/30 transition hover:bg-accent-dim disabled:cursor-not-allowed disabled:opacity-45"
+              >
+                {phase === "idle" ? "Start round" : "Round in motion…"}
+              </button>
+            </div>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(280px,0.9fr)]">
@@ -448,6 +465,14 @@ export default function GamePage() {
                   className="rounded-xl border border-white/15 px-4 py-2 text-sm font-semibold text-white/80 hover:bg-white/5 disabled:opacity-40"
                 >
                   Clear canvas
+                </button>
+                <button
+                  type="button"
+                  onClick={() => canvasRef.current?.undoLastStroke()}
+                  disabled={canvasDisabled}
+                  className="rounded-xl border border-white/15 px-4 py-2 text-sm font-semibold text-white/80 hover:bg-white/5 disabled:opacity-40"
+                >
+                  Undo last stroke
                 </button>
                 <label className="flex items-center gap-2 text-sm text-white/60">
                   Brush
