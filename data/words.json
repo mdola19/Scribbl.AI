@@ -1,0 +1,1209 @@
+[
+  {
+    "word": "river",
+    "difficulty": 1,
+    "synonyms": [
+      "stream"
+    ]
+  },
+  {
+    "word": "stalactite",
+    "difficulty": 3,
+    "synonyms": [
+      "cave spike"
+    ]
+  },
+  {
+    "word": "apple",
+    "difficulty": 1,
+    "synonyms": [
+      "fruit"
+    ]
+  },
+  {
+    "word": "stalagmite",
+    "difficulty": 3,
+    "synonyms": [
+      "cave column"
+    ]
+  },
+  {
+    "word": "peninsula",
+    "difficulty": 3,
+    "synonyms": [
+      "cape"
+    ]
+  },
+  {
+    "word": "banana",
+    "difficulty": 1,
+    "synonyms": [
+      "fruit"
+    ]
+  },
+  {
+    "word": "catamaran",
+    "difficulty": 3,
+    "synonyms": [
+      "twin hull"
+    ]
+  },
+  {
+    "word": "door",
+    "difficulty": 1,
+    "synonyms": [
+      "gate"
+    ]
+  },
+  {
+    "word": "fjord",
+    "difficulty": 3,
+    "synonyms": [
+      "glacial inlet"
+    ]
+  },
+  {
+    "word": "camera",
+    "difficulty": 2,
+    "synonyms": [
+      "photocamera"
+    ]
+  },
+  {
+    "word": "tsunami",
+    "difficulty": 3,
+    "synonyms": [
+      "tidal wave"
+    ]
+  },
+  {
+    "word": "pirate",
+    "difficulty": 2,
+    "synonyms": [
+      "buccaneer"
+    ]
+  },
+  {
+    "word": "sun",
+    "difficulty": 1,
+    "synonyms": [
+      "sunshine",
+      "solar"
+    ]
+  },
+  {
+    "word": "canyon",
+    "difficulty": 2,
+    "synonyms": [
+      "gorge"
+    ]
+  },
+  {
+    "word": "particle collider",
+    "difficulty": 3,
+    "synonyms": [
+      "atom smasher"
+    ]
+  },
+  {
+    "word": "lighthouse",
+    "difficulty": 2,
+    "synonyms": [
+      "beacon"
+    ]
+  },
+  {
+    "word": "astronaut",
+    "difficulty": 2,
+    "synonyms": [
+      "spacewalker"
+    ]
+  },
+  {
+    "word": "sextant",
+    "difficulty": 3,
+    "synonyms": [
+      "navigation tool"
+    ]
+  },
+  {
+    "word": "island",
+    "difficulty": 1,
+    "synonyms": [
+      "isle"
+    ]
+  },
+  {
+    "word": "bus",
+    "difficulty": 1,
+    "synonyms": [
+      "coach"
+    ]
+  },
+  {
+    "word": "backpack",
+    "difficulty": 2,
+    "synonyms": [
+      "rucksack"
+    ]
+  },
+  {
+    "word": "drawbridge",
+    "difficulty": 3,
+    "synonyms": [
+      "bascule"
+    ]
+  },
+  {
+    "word": "quicksand",
+    "difficulty": 3,
+    "synonyms": [
+      "sink sand"
+    ]
+  },
+  {
+    "word": "crane",
+    "difficulty": 3,
+    "synonyms": [
+      "construction arm"
+    ]
+  },
+  {
+    "word": "giraffe",
+    "difficulty": 2,
+    "synonyms": [
+      "tall animal"
+    ]
+  },
+  {
+    "word": "chandelier",
+    "difficulty": 3,
+    "synonyms": [
+      "ceiling lamp"
+    ]
+  },
+  {
+    "word": "bird",
+    "difficulty": 1,
+    "synonyms": [
+      "avian"
+    ]
+  },
+  {
+    "word": "ball",
+    "difficulty": 1,
+    "synonyms": [
+      "sphere"
+    ]
+  },
+  {
+    "word": "beach",
+    "difficulty": 1,
+    "synonyms": [
+      "shore"
+    ]
+  },
+  {
+    "word": "piano",
+    "difficulty": 1,
+    "synonyms": [
+      "keys"
+    ]
+  },
+  {
+    "word": "vampire",
+    "difficulty": 2,
+    "synonyms": [
+      "dracula"
+    ]
+  },
+  {
+    "word": "cat",
+    "difficulty": 1,
+    "synonyms": [
+      "kitten",
+      "feline"
+    ]
+  },
+  {
+    "word": "periscope",
+    "difficulty": 3,
+    "synonyms": [
+      "submarine scope"
+    ]
+  },
+  {
+    "word": "eye",
+    "difficulty": 1,
+    "synonyms": [
+      "vision"
+    ]
+  },
+  {
+    "word": "microscope",
+    "difficulty": 2,
+    "synonyms": [
+      "magnifier"
+    ]
+  },
+  {
+    "word": "tooth",
+    "difficulty": 1,
+    "synonyms": [
+      "teeth"
+    ]
+  },
+  {
+    "word": "pagoda",
+    "difficulty": 3,
+    "synonyms": [
+      "temple tower"
+    ]
+  },
+  {
+    "word": "geyser",
+    "difficulty": 3,
+    "synonyms": [
+      "hot spring"
+    ]
+  },
+  {
+    "word": "key",
+    "difficulty": 1,
+    "synonyms": [
+      "lock opener"
+    ]
+  },
+  {
+    "word": "tent",
+    "difficulty": 2,
+    "synonyms": [
+      "shelter"
+    ]
+  },
+  {
+    "word": "wind turbine",
+    "difficulty": 3,
+    "synonyms": [
+      "windmill"
+    ]
+  },
+  {
+    "word": "mannequin",
+    "difficulty": 3,
+    "synonyms": [
+      "display model"
+    ]
+  },
+  {
+    "word": "compass",
+    "difficulty": 2,
+    "synonyms": [
+      "direction tool"
+    ]
+  },
+  {
+    "word": "moon",
+    "difficulty": 1,
+    "synonyms": [
+      "lunar"
+    ]
+  },
+  {
+    "word": "hourglass",
+    "difficulty": 3,
+    "synonyms": [
+      "sand timer"
+    ]
+  },
+  {
+    "word": "scissors",
+    "difficulty": 2,
+    "synonyms": [
+      "shears"
+    ]
+  },
+  {
+    "word": "smile",
+    "difficulty": 1,
+    "synonyms": [
+      "grin"
+    ]
+  },
+  {
+    "word": "lightning",
+    "difficulty": 2,
+    "synonyms": [
+      "thunder bolt"
+    ]
+  },
+  {
+    "word": "train",
+    "difficulty": 1,
+    "synonyms": [
+      "locomotive"
+    ]
+  },
+  {
+    "word": "spacesuit",
+    "difficulty": 3,
+    "synonyms": [
+      "eva suit"
+    ]
+  },
+  {
+    "word": "chair",
+    "difficulty": 1,
+    "synonyms": [
+      "seat"
+    ]
+  },
+  {
+    "word": "elephant",
+    "difficulty": 2,
+    "synonyms": [
+      "pachyderm"
+    ]
+  },
+  {
+    "word": "bicycle",
+    "difficulty": 2,
+    "synonyms": [
+      "bike"
+    ]
+  },
+  {
+    "word": "accordion",
+    "difficulty": 3,
+    "synonyms": [
+      "squeezebox"
+    ]
+  },
+  {
+    "word": "windmill",
+    "difficulty": 2,
+    "synonyms": [
+      "turbine"
+    ]
+  },
+  {
+    "word": "rainbow",
+    "difficulty": 2,
+    "synonyms": [
+      "spectrum"
+    ]
+  },
+  {
+    "word": "cello",
+    "difficulty": 3,
+    "synonyms": [
+      "string instrument"
+    ]
+  },
+  {
+    "word": "desert",
+    "difficulty": 2,
+    "synonyms": [
+      "dunes"
+    ]
+  },
+  {
+    "word": "chef",
+    "difficulty": 2,
+    "synonyms": [
+      "cook"
+    ]
+  },
+  {
+    "word": "boat",
+    "difficulty": 1,
+    "synonyms": [
+      "ship",
+      "vessel"
+    ]
+  },
+  {
+    "word": "airplane",
+    "difficulty": 2,
+    "synonyms": [
+      "aeroplane",
+      "plane"
+    ]
+  },
+  {
+    "word": "fish",
+    "difficulty": 1,
+    "synonyms": [
+      "seafood"
+    ]
+  },
+  {
+    "word": "dam",
+    "difficulty": 3,
+    "synonyms": [
+      "hydro barrier"
+    ]
+  },
+  {
+    "word": "jungle",
+    "difficulty": 2,
+    "synonyms": [
+      "rainforest"
+    ]
+  },
+  {
+    "word": "whirlpool",
+    "difficulty": 3,
+    "synonyms": [
+      "eddy"
+    ]
+  },
+  {
+    "word": "pyramid",
+    "difficulty": 2,
+    "synonyms": [
+      "tomb"
+    ]
+  },
+  {
+    "word": "submarine",
+    "difficulty": 3,
+    "synonyms": [
+      "sub"
+    ]
+  },
+  {
+    "word": "firetruck",
+    "difficulty": 2,
+    "synonyms": [
+      "fire engine"
+    ]
+  },
+  {
+    "word": "clock",
+    "difficulty": 1,
+    "synonyms": [
+      "timepiece"
+    ]
+  },
+  {
+    "word": "skyscraper",
+    "difficulty": 3,
+    "synonyms": [
+      "tower"
+    ]
+  },
+  {
+    "word": "bagpipes",
+    "difficulty": 3,
+    "synonyms": [
+      "pipes"
+    ]
+  },
+  {
+    "word": "glasses",
+    "difficulty": 1,
+    "synonyms": [
+      "spectacles"
+    ]
+  },
+  {
+    "word": "zeppelin",
+    "difficulty": 3,
+    "synonyms": [
+      "blimp"
+    ]
+  },
+  {
+    "word": "star",
+    "difficulty": 1,
+    "synonyms": [
+      "stellar"
+    ]
+  },
+  {
+    "word": "igloo",
+    "difficulty": 2,
+    "synonyms": [
+      "snow hut"
+    ]
+  },
+  {
+    "word": "mangrove",
+    "difficulty": 3,
+    "synonyms": [
+      "coastal tree"
+    ]
+  },
+  {
+    "word": "mountain",
+    "difficulty": 1,
+    "synonyms": [
+      "peak"
+    ]
+  },
+  {
+    "word": "kaleidoscope",
+    "difficulty": 3,
+    "synonyms": [
+      "color tube"
+    ]
+  },
+  {
+    "word": "trebuchet",
+    "difficulty": 3,
+    "synonyms": [
+      "sling"
+    ]
+  },
+  {
+    "word": "ghost",
+    "difficulty": 2,
+    "synonyms": [
+      "spirit"
+    ]
+  },
+  {
+    "word": "waterfall",
+    "difficulty": 2,
+    "synonyms": [
+      "cascade"
+    ]
+  },
+  {
+    "word": "glacier",
+    "difficulty": 3,
+    "synonyms": [
+      "ice river"
+    ]
+  },
+  {
+    "word": "excavator",
+    "difficulty": 3,
+    "synonyms": [
+      "digger"
+    ]
+  },
+  {
+    "word": "obelisk",
+    "difficulty": 3,
+    "synonyms": [
+      "monolith"
+    ]
+  },
+  {
+    "word": "helicopter",
+    "difficulty": 2,
+    "synonyms": [
+      "chopper"
+    ]
+  },
+  {
+    "word": "cake",
+    "difficulty": 1,
+    "synonyms": [
+      "dessert"
+    ]
+  },
+  {
+    "word": "detective",
+    "difficulty": 2,
+    "synonyms": [
+      "sleuth"
+    ]
+  },
+  {
+    "word": "binoculars",
+    "difficulty": 2,
+    "synonyms": [
+      "field glasses"
+    ]
+  },
+  {
+    "word": "flower",
+    "difficulty": 1,
+    "synonyms": [
+      "blossom",
+      "bloom"
+    ]
+  },
+  {
+    "word": "keyboard",
+    "difficulty": 2,
+    "synonyms": [
+      "keys"
+    ]
+  },
+  {
+    "word": "alchemy",
+    "difficulty": 3,
+    "synonyms": [
+      "potion making"
+    ]
+  },
+  {
+    "word": "wizard",
+    "difficulty": 2,
+    "synonyms": [
+      "sorcerer"
+    ]
+  },
+  {
+    "word": "hand",
+    "difficulty": 1,
+    "synonyms": [
+      "palm"
+    ]
+  },
+  {
+    "word": "wrench",
+    "difficulty": 2,
+    "synonyms": [
+      "spanner"
+    ]
+  },
+  {
+    "word": "radio telescope",
+    "difficulty": 3,
+    "synonyms": [
+      "dish"
+    ]
+  },
+  {
+    "word": "rocket",
+    "difficulty": 1,
+    "synonyms": [
+      "spaceship"
+    ]
+  },
+  {
+    "word": "guitar",
+    "difficulty": 1,
+    "synonyms": [
+      "axe"
+    ]
+  },
+  {
+    "word": "pizza",
+    "difficulty": 1,
+    "synonyms": [
+      "pie"
+    ]
+  },
+  {
+    "word": "easel",
+    "difficulty": 3,
+    "synonyms": [
+      "artist stand"
+    ]
+  },
+  {
+    "word": "laptop",
+    "difficulty": 2,
+    "synonyms": [
+      "notebook pc"
+    ]
+  },
+  {
+    "word": "volcano",
+    "difficulty": 2,
+    "synonyms": [
+      "mount eruption"
+    ]
+  },
+  {
+    "word": "lantern",
+    "difficulty": 3,
+    "synonyms": [
+      "lamp"
+    ]
+  },
+  {
+    "word": "sphinx",
+    "difficulty": 3,
+    "synonyms": [
+      "statue"
+    ]
+  },
+  {
+    "word": "car",
+    "difficulty": 1,
+    "synonyms": [
+      "automobile",
+      "vehicle"
+    ]
+  },
+  {
+    "word": "constellation",
+    "difficulty": 3,
+    "synonyms": [
+      "star pattern"
+    ]
+  },
+  {
+    "word": "trombone",
+    "difficulty": 3,
+    "synonyms": [
+      "brass slide"
+    ]
+  },
+  {
+    "word": "harp",
+    "difficulty": 3,
+    "synonyms": [
+      "lyre"
+    ]
+  },
+  {
+    "word": "cowboy",
+    "difficulty": 2,
+    "synonyms": [
+      "rancher"
+    ]
+  },
+  {
+    "word": "shoe",
+    "difficulty": 1,
+    "synonyms": [
+      "sneaker"
+    ]
+  },
+  {
+    "word": "hammer",
+    "difficulty": 2,
+    "synonyms": [
+      "mallet"
+    ]
+  },
+  {
+    "word": "cloud",
+    "difficulty": 1,
+    "synonyms": [
+      "sky"
+    ]
+  },
+  {
+    "word": "coral reef",
+    "difficulty": 3,
+    "synonyms": [
+      "reef"
+    ]
+  },
+  {
+    "word": "dragon",
+    "difficulty": 2,
+    "synonyms": [
+      "wyrm"
+    ]
+  },
+  {
+    "word": "bulldozer",
+    "difficulty": 3,
+    "synonyms": [
+      "dozer"
+    ]
+  },
+  {
+    "word": "telescope",
+    "difficulty": 2,
+    "synonyms": [
+      "scope"
+    ]
+  },
+  {
+    "word": "robot",
+    "difficulty": 1,
+    "synonyms": [
+      "android"
+    ]
+  },
+  {
+    "word": "satellite",
+    "difficulty": 3,
+    "synonyms": [
+      "orbit craft"
+    ]
+  },
+  {
+    "word": "rollercoaster",
+    "difficulty": 3,
+    "synonyms": [
+      "coaster"
+    ]
+  },
+  {
+    "word": "microphone",
+    "difficulty": 2,
+    "synonyms": [
+      "mic"
+    ]
+  },
+  {
+    "word": "headphones",
+    "difficulty": 2,
+    "synonyms": [
+      "earphones"
+    ]
+  },
+  {
+    "word": "campfire",
+    "difficulty": 2,
+    "synonyms": [
+      "bonfire"
+    ]
+  },
+  {
+    "word": "bed",
+    "difficulty": 1,
+    "synonyms": [
+      "mattress"
+    ]
+  },
+  {
+    "word": "maypole",
+    "difficulty": 3,
+    "synonyms": [
+      "dance pole"
+    ]
+  },
+  {
+    "word": "leaf",
+    "difficulty": 1,
+    "synonyms": [
+      "foliage"
+    ]
+  },
+  {
+    "word": "drum",
+    "difficulty": 1,
+    "synonyms": [
+      "percussion"
+    ]
+  },
+  {
+    "word": "sundial",
+    "difficulty": 3,
+    "synonyms": [
+      "shadow clock"
+    ]
+  },
+  {
+    "word": "saxophone",
+    "difficulty": 3,
+    "synonyms": [
+      "sax"
+    ]
+  },
+  {
+    "word": "heart",
+    "difficulty": 1,
+    "synonyms": [
+      "love"
+    ]
+  },
+  {
+    "word": "metronome",
+    "difficulty": 3,
+    "synonyms": [
+      "tempo device"
+    ]
+  },
+  {
+    "word": "house",
+    "difficulty": 1,
+    "synonyms": [
+      "home",
+      "cottage"
+    ]
+  },
+  {
+    "word": "motorcycle",
+    "difficulty": 2,
+    "synonyms": [
+      "motorbike"
+    ]
+  },
+  {
+    "word": "crown",
+    "difficulty": 2,
+    "synonyms": [
+      "royal headwear"
+    ]
+  },
+  {
+    "word": "unicorn",
+    "difficulty": 2,
+    "synonyms": [
+      "mythical horse"
+    ]
+  },
+  {
+    "word": "phone",
+    "difficulty": 1,
+    "synonyms": [
+      "mobile",
+      "cell"
+    ]
+  },
+  {
+    "word": "ninja",
+    "difficulty": 2,
+    "synonyms": [
+      "shinobi"
+    ]
+  },
+  {
+    "word": "oasis",
+    "difficulty": 3,
+    "synonyms": [
+      "desert spring"
+    ]
+  },
+  {
+    "word": "planetarium",
+    "difficulty": 3,
+    "synonyms": [
+      "star dome"
+    ]
+  },
+  {
+    "word": "ladder",
+    "difficulty": 2,
+    "synonyms": [
+      "steps"
+    ]
+  },
+  {
+    "word": "savanna",
+    "difficulty": 3,
+    "synonyms": [
+      "grassland"
+    ]
+  },
+  {
+    "word": "window",
+    "difficulty": 1,
+    "synonyms": [
+      "pane"
+    ]
+  },
+  {
+    "word": "iceberg",
+    "difficulty": 3,
+    "synonyms": [
+      "glacial ice"
+    ]
+  },
+  {
+    "word": "fence",
+    "difficulty": 2,
+    "synonyms": [
+      "railing"
+    ]
+  },
+  {
+    "word": "battleship",
+    "difficulty": 3,
+    "synonyms": [
+      "warship"
+    ]
+  },
+  {
+    "word": "bridge",
+    "difficulty": 1,
+    "synonyms": [
+      "overpass"
+    ]
+  },
+  {
+    "word": "dog",
+    "difficulty": 1,
+    "synonyms": [
+      "puppy",
+      "hound"
+    ]
+  },
+  {
+    "word": "ambulance",
+    "difficulty": 2,
+    "synonyms": [
+      "ems"
+    ]
+  },
+  {
+    "word": "ferris wheel",
+    "difficulty": 3,
+    "synonyms": [
+      "big wheel"
+    ]
+  },
+  {
+    "word": "octopus",
+    "difficulty": 2,
+    "synonyms": [
+      "cephalopod"
+    ]
+  },
+  {
+    "word": "snowman",
+    "difficulty": 2,
+    "synonyms": [
+      "frosty"
+    ]
+  },
+  {
+    "word": "gondola",
+    "difficulty": 3,
+    "synonyms": [
+      "canal boat"
+    ]
+  },
+  {
+    "word": "umbrella",
+    "difficulty": 1,
+    "synonyms": [
+      "parasol"
+    ]
+  },
+  {
+    "word": "aurora",
+    "difficulty": 3,
+    "synonyms": [
+      "northern lights"
+    ]
+  },
+  {
+    "word": "totem pole",
+    "difficulty": 3,
+    "synonyms": [
+      "totem"
+    ]
+  },
+  {
+    "word": "aqueduct",
+    "difficulty": 3,
+    "synonyms": [
+      "water bridge"
+    ]
+  },
+  {
+    "word": "tornado",
+    "difficulty": 2,
+    "synonyms": [
+      "twister"
+    ]
+  },
+  {
+    "word": "penguin",
+    "difficulty": 2,
+    "synonyms": [
+      "antarctic bird"
+    ]
+  },
+  {
+    "word": "book",
+    "difficulty": 1,
+    "synonyms": [
+      "novel",
+      "tome"
+    ]
+  },
+  {
+    "word": "snow",
+    "difficulty": 1,
+    "synonyms": [
+      "snowflake"
+    ]
+  },
+  {
+    "word": "tree",
+    "difficulty": 1,
+    "synonyms": [
+      "oak"
+    ]
+  },
+  {
+    "word": "parachute",
+    "difficulty": 3,
+    "synonyms": [
+      "chute"
+    ]
+  },
+  {
+    "word": "archipelago",
+    "difficulty": 3,
+    "synonyms": [
+      "island chain"
+    ]
+  },
+  {
+    "word": "cookie",
+    "difficulty": 1,
+    "synonyms": [
+      "biscuit"
+    ]
+  },
+  {
+    "word": "catapult",
+    "difficulty": 3,
+    "synonyms": [
+      "siege engine"
+    ]
+  },
+  {
+    "word": "table",
+    "difficulty": 1,
+    "synonyms": [
+      "desk"
+    ]
+  },
+  {
+    "word": "foot",
+    "difficulty": 1,
+    "synonyms": [
+      "feet"
+    ]
+  },
+  {
+    "word": "butterfly",
+    "difficulty": 2,
+    "synonyms": [
+      "moth"
+    ]
+  },
+  {
+    "word": "castle",
+    "difficulty": 2,
+    "synonyms": [
+      "fortress"
+    ]
+  },
+  {
+    "word": "tractor",
+    "difficulty": 2,
+    "synonyms": [
+      "farm vehicle"
+    ]
+  },
+  {
+    "word": "rain",
+    "difficulty": 1,
+    "synonyms": [
+      "raindrop"
+    ]
+  },
+  {
+    "word": "hat",
+    "difficulty": 1,
+    "synonyms": [
+      "cap"
+    ]
+  },
+  {
+    "word": "cuckoo clock",
+    "difficulty": 3,
+    "synonyms": [
+      "bird clock"
+    ]
+  }
+]

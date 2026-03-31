@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply min-h-screen bg-stage-950 font-sans text-white antialiased;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -30%, rgba(124, 92, 255, 0.22), transparent),
+    radial-gradient(ellipse 70% 50% at 100% 0%, rgba(255, 215, 106, 0.08), transparent);
+}
+
+@keyframes guess-pop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-guess-pop {
+  animation: guess-pop 0.35s ease-out;
+}
